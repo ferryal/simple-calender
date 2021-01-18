@@ -1,6 +1,4 @@
 import { all, call, spawn } from 'redux-saga/effects';
-import { IS_PRODUCTION } from '../config/env';
-import { watchAndLog } from './logger';
 import {
   watchEditReminder,
   watchNewReminder,
@@ -41,9 +39,6 @@ export default function* rootSaga() {
     watchEditReminder,
     watchSubmitReminder
   ];
-  if (!IS_PRODUCTION) {
-    sagas.unshift(watchAndLog);
-  }
 
   yield keepAlive(...sagas);
 }

@@ -6,7 +6,6 @@ import { openReminder, closeReminder  } from '../actions/reminder';
 import { REMINDER } from '../actions/ActionTypes';
 import { dateTimeStringsToMillis, DATE_FORMAT } from '../helpers/calendar';
 import { DEFAULT_COLOR } from '../helpers/colors';
-import { generateUUID } from '../helpers/uuid';
 
 export function* openRemind(reminder) {
   yield put(openReminder(reminder));
@@ -47,9 +46,6 @@ export function* editRemind(action) {
 export function* submitRemind(action) {
   const reminder = action.payload;
   let id = reminder.id;
-  if (!id) {
-    id = yield call(generateUUID);
-  }
 
   const reminderToSet = {
     id,

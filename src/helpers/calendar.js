@@ -1,5 +1,4 @@
 import { DateTime, Info, Interval } from 'luxon';
-import { APP_LOCALE } from '../config/locale';
 
 export const DAYS_IN_A_WEEK = 7;
 export const MONTH_FORMAT = 'yyyy-MM';
@@ -9,6 +8,8 @@ export const TIME_FORMAT = 'hh:mm';
 const SATURDAY_NUMBER = 7;
 const SUNDAY_NUMBER = 1;
 const weekendNumbers = Object.freeze([SATURDAY_NUMBER, SUNDAY_NUMBER]);
+
+const APP_LOCALE = "en-US";
 
 export function toLocalWeekdayNumber(isoWeekday) {
   return (isoWeekday % DAYS_IN_A_WEEK) + 1;
